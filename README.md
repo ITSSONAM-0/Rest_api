@@ -1,7 +1,7 @@
 
 # 📘 REST API – Complete Theory for MERN Stack (Placement Ready)
 
-##🔹 What is REST API?
+## 🔹 What is REST API?
 
 REST API (Representational State Transfer) is a way for your frontend (React) to communicate with your backend (Node.js + Express) using simple HTTP requests.
 
@@ -9,7 +9,7 @@ React → API request → Express/Node → MongoDB → Response back to React.
 
 ---
 
-##🔹 REST Principles
+## 🔹 REST Principles
 
 Client–Server → React (client) and Express (server) work independently.
 ---
@@ -24,14 +24,18 @@ Cacheable → Responses can be cached.
 
 Layered Architecture → Middlewares, routers, controllers, database.
 
-🔹 HTTP Methods in REST
+---
+
+###🔹 HTTP Methods in REST
 Method	Description
 GET	Read data
 POST	Create new data
 PUT	Update full data
 PATCH	Update partial data
 DELETE	Delete data
-🔹 REST API URL Design (Best Practices)
+---
+
+## 🔹 REST API URL Design (Best Practices)
 
 ✔ Use nouns, not verbs
 ✔ Use plural names
@@ -41,37 +45,45 @@ DELETE	Delete data
 /getUsers	/users
 /create-post	/posts
 /deleteUser/55	/users/55
-🔹 Important HTTP Status Codes
+
+---
+### 🔹 Important HTTP Status Codes
 ✔ Success
 Code	Meaning
 200 OK	Request successful
 201 Created	New data created
 204 No Content	Successful but no response body
-❗ Errors
+---
+
+### ❗ Errors
 Code	Meaning
 400 Bad Request	Wrong API input
 401 Unauthorized	Token required
 403 Forbidden	Access denied
 404 Not Found	Resource not found
 500 Internal Server Error	Server crashed
-🔹 JSON – Standard Data Format
-{
+
+## 🔹 JSON – Standard Data Format
+```{
   "name": "Sonam",
   "email": "sonam@example.com"
-}
+}```
 
-🔹 CRUD Operations Example (Express + MongoDB)
-1️⃣ Create (POST /users)
+
+
+### 🔹 CRUD Operations Example (Express + MongoDB)
+```1️⃣ Create (POST /users)
 router.post("/users", async (req, res) => {
   const user = await User.create(req.body);
   res.status(201).json(user);
-});
+});```
 
-2️⃣ Read (GET /users)
+
+```2️⃣ Read (GET /users)
 router.get("/users", async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
-});
+});```
 
 3️⃣ Update (PUT /users/:id)
 router.put("/users/:id", async (req, res) => {
