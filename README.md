@@ -1,13 +1,18 @@
-#📘 REST API – Complete Theory for MERN Stack (Placement Ready)
-🔹 What is REST API?
+
+# 📘 REST API – Complete Theory for MERN Stack (Placement Ready)
+
+##🔹 What is REST API?
 
 REST API (Representational State Transfer) is a way for your frontend (React) to communicate with your backend (Node.js + Express) using simple HTTP requests.
 
 React → API request → Express/Node → MongoDB → Response back to React.
 
-🔹 REST Principles
+---
+
+##🔹 REST Principles
 
 Client–Server → React (client) and Express (server) work independently.
+---
 
 Stateless → Server does not store session data.
 
