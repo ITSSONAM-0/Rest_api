@@ -68,7 +68,7 @@ Code	Meaning
   "name": "Sonam",
   "email": "sonam@example.com"
 }```
-
+```
 
 
 ### 🔹 CRUD Operations Example (Express + MongoDB)
@@ -76,28 +76,30 @@ Code	Meaning
 router.post("/users", async (req, res) => {
   const user = await User.create(req.body);
   res.status(201).json(user);
-});```
+});
 
-
+```
 ```2️⃣ Read (GET /users)
 router.get("/users", async (req, res) => {
   const users = await User.find();
   res.status(200).json(users);
-});```
+});
+```
 
-3️⃣ Update (PUT /users/:id)
+```3️⃣ Update (PUT /users/:id)
 router.put("/users/:id", async (req, res) => {
   const updated = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.status(200).json(updated);
 });
+```
 
-4️⃣ Delete (DELETE /users/:id)
+```4️⃣ Delete (DELETE /users/:id)
 router.delete("/users/:id", async (req, res) => {
   await User.findByIdAndDelete(req.params.id);
   res.status(204).send();
 });
-
-🔹 Middlewares (Very Important)
+```
+# 🔹 Middlewares (Very Important)
 
 Middleware → code that runs before the main API handler.
 
@@ -113,7 +115,7 @@ Logging
 
 app.use(express.json());
 
-🔹 Authentication Using JWT
+# 🔹 Authentication Using JWT
 Client → sends token
 Server → verifies token
 
@@ -122,9 +124,9 @@ Example header:
 Authorization: Bearer <token>
 
 
-Express JWT middleware:
+# Express JWT middleware:
 
-import jwt from "jsonwebtoken";
+```import jwt from "jsonwebtoken";
 
 function auth(req, res, next) {
   const token = req.headers.authorization?.split(" ")[1];
@@ -136,8 +138,8 @@ function auth(req, res, next) {
     next();
   });
 }
-
-🔹 Pagination in REST
+```
+# 🔹 Pagination in REST
 
 Used when returning large lists.
 
@@ -146,16 +148,16 @@ Example:
 GET /products?page=1&limit=10
 
 
-Express:
+# Express:
 
-const page = req.query.page || 1;
+```const page = req.query.page || 1;
 const limit = req.query.limit || 10;
 
 const products = await Product.find()
   .skip((page - 1) * limit)
   .limit(limit);
-
-🔹 Idempotency (Interview Favorite)
+```
+# 🔹 Idempotency (Interview Favorite)
 Method	Idempotent?
 GET	✔ Yes
 PUT	✔ Yes
@@ -164,13 +166,13 @@ POST	❌ No
 
 POST creates new record each time → not idempotent.
 
-🔹 REST vs GraphQL (MERN Interview Question)
+# 🔹 REST vs GraphQL (MERN Interview Question)
 REST	GraphQL
 Multiple endpoints	Single endpoint
 May over-fetch	Fetch only required data
 Easy	Complex
 Great for MERN	Also used with MERN
-🔹 Suggested MERN Backend Folder Structure
+# 🔹 Suggested MERN Backend Folder Structure
 backend/
  ├── controllers/
  ├── models/
@@ -180,7 +182,7 @@ backend/
  ├── server.js
  └── package.json
 
-✔ Final Interview Summary
+# ✔ Final Interview Summary
 
 REST API is a stateless, resource-based architecture that uses HTTP methods
 (GET, POST, PUT, DELETE) to perform CRUD operations on resources like /users
